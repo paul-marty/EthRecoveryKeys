@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Ethereum recovery key</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/modal.css" />
+		<script src="assets/js/lib/clipboard.min.js"></script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner">
+					<h1>Ethereum recovery key</h1>
+					<p>Distributed wallet recovery key</p>
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Banner -->
+					<section id="intro" class="main">
+						<span class="icon fa-diamond major"></span>
+						<h3>How does it works?</h3>
+						<p>Ethereum distributed wallet generate recovery keys that you can give to your friends and family, put in the cloud, etc. If you lost your Ethereum wallet, you just need have to get the keys. <br />Some key are missing? No problem, you don't need all the key to recover your wallet.</p>
+						<h3>Is it secure and reliable?</h3>
+						<p>Yes, only if you respect the the following rules:
+						<ul>
+							<li>Participants (Individual, systems, cold storage, etc.) will ensure confidentiality, integrity and availability of the recovery keys in "best effort".</li>
+							<li>Use DIFFERENT channels to communicate the recovery keys to each participant (hand-to-hand, encrypted chat/mail, etc.)</li>
+							<li>DELETE any copy of the recovery key once it is received by participants (Don't forget mail and chat history).</li>
+							<li>TEST the recovery process on a regular basis. It can also be an opportunity to regenerate the keys</li>
+							<li>ENSURE that every participant understand the criticality of the request.</li>
+						<ul>
+						<h3>Technical implementation</h3>
+						<p>This application extract the private key from the keystore. This private key is split into X recovery keys using the <a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing">Shamir's Secret Sharing algorithm.</a><br>
+						</p>
+						<h2>Generate recovery keys: </h2>
+						<p>
+						<label >
+							Enter your wallet password:
+							<input id="walletPasswordGen" type="password" />
+						</label>
+
+						<p><label  >
+						Number of keys to be generated?<br />
+							<input id="nbrKeyGen" type="number"/>
+						</label></p>
+						<label  >
+							Minimum number of keys required to recover you wallet?<br />
+							<input id="nbrKeyRecover" type="number"/>
+						</label>						</p>
+						<p>
+						<a onclick="genWalletButton()" class="button small" href="javascript:void(0);" > Generate a Wallet</a>
+						 or <label class="button small"  >
+							<input id="uploadWallet" onclick="uploadButtonClick()"  href="javascript:void(0);"  type="file"/>
+							 Import your wallet
+						</label></p>
+						<h2>Wallet recovery:</h2>
+						<p>
+						<label >
+							Enter a password for the new wallet:
+							<input id="walletPasswordReco" type="password" />
+						</label>
+						<label >
+						Enter your address (Put "?" if you don't know it):
+						<input type="text" id="inputAddress">
+						</label >
+						<p><a onclick="combineKeys()" class="button big" href="javascript:void(0);" id="recoverButton">Recover my wallet</a></p>
+
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="main special" >
+						<h2>Recovery keys</h2>
+
+						<p id="recoveryStatus"></p>
+
+						<div id="keys">
+
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://twitter.com/polo46" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/paul-marty" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<p class="copyright">Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+					</footer>
+
+			</div>
+				<!-- The Modal -->
+				<div id="loading" class="modal">
+
+				  <!-- Modal content -->
+				  <div class="modal-content">
+					<span class="close">x</span>
+					<p id="textModal"></p>
+				  </div>
+
+				</div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/lib/secrets.js"></script>
+			<script src="assets/js/lib/cryptojs/rollups/aes.js"></script>
+			<script src="assets/js/lib/cryptojs/components/cipher-core-min.js"></script>
+			<script src="assets/js/lib/cryptojs/components/enc-base64-min.js"></script>
+			<script src="assets/js/lib/cryptojs/rollups/pbkdf2.js"></script>
+			<script src="assets/js/lib/cryptojs/components/enc-utf16-min.js"></script>
+			<script src="assets/js/lib/cryptojs/rollups/aes.js"></script>
+			<script src="assets/js/lib/cryptojs/rollups/pbkdf2.js"></script>
+			<script src="assets/js/lib/keythereum.min.js" type="text/javascript"></script>
+			<script src="assets/js/app/functions.js" type="text/javascript"></script>
+			<script src="assets/js/app/jquery.min.js"></script>
+			<script src="assets/js/app/skel.min.js"></script>
+			<script src="assets/js/app/util.js"></script>
+			<script src="assets/js/app/main.js"></script>
+			<script src="assets/js/app/init.js" type="text/javascript"></script>
+<!--
+	Epilogue by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+	</body>
+</html>
