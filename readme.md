@@ -18,12 +18,12 @@ This mechanism of "recovery keys" is enforced by the Shamir's Secret Sharing alg
 #Security recommendations
 The security efficiency of this solution relies on the following points:
 Participants (people, systems, cold storage, etc.) will ensure confidentiality, integrity and availability of the recovery keys in "best effort".
-* Use a TRUSTED computer to generate the keys
-* Use DIFFERENT channels to communicate the recovery keys to each participant (hand-to-hand, encrypted chat/mail, etc.)
-* DELETE any copy of the recovery key once it is received by participants (don't forget mail/chat history).
-* TEST the recovery process on a regular basis. It can also be an opportunity to regenerate the keys
-* ENSURE that every human participant understand the criticality of the request.
-* No more than ONE recovery key per semi-trusted party.
+* Use a **TRUSTED** computer to generate the keys
+* Use **DIFFERENT** channels to communicate the recovery keys to each participant (hand-to-hand, encrypted chat/mail, etc.)
+* **DELETE** any copy of the recovery key once it is received by participants (don't forget mail/chat history).
+* **TEST** the recovery process on a regular basis. It can also be an opportunity to regenerate the keys
+* **ENSURE** that every human participant understand the criticality of the request.
+* No more than **ONE** recovery key per semi-trusted party.
 
 #Process
 * Creation of the recovery keys :
