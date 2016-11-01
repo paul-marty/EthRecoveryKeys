@@ -146,6 +146,15 @@
 
 					i++;
 				}
+				//if the first row is empty, it means that there is no need for integrity check
+				if(fields[0].replace (/(^\s*)|(\s*$)/gi, "")!=''){
+					//generate the integrity check field
+					integrityHashes.readonly = "enable";
+					integrityHashes.innerHTML = hashTable(fields);
+
+				}
+
+
 
 			}
 			function combineKeys(){
@@ -198,4 +207,29 @@
 			}
 			function setAddress(address){
 				document.getElementById("inputAddress").value = address;
+			}
+
+			function  hashTable(keys) {
+				hashRes ='';
+				for (i = 0; i < keys.length; i++) {
+					keyId = keys[i].charAt(1)+keys[i].charAt(2)+keys[i].charAt(3)+keys[i].charAt(4);
+					hashRes += keyId+CryptoJS.SHA1(keys[i]).toString()+"\r";
+				}
+				return hashRes;
+			}
+			function compareIntegrity(recoveryKey, integrityHash) {
+				integrityHashId = integrityHash.charAt(1)+integrityHash.charAt(2)+integrityHash.charAt(3)+integrityHash.charAt(4);
+				recoveryKeyId = integrityHash.charAt(1)+integrityHash.charAt(2)+integrityHash.charAt(3)+integrityHash.charAt(4);
+				integrityHash = integrityHash.replace (/(^@test@$)/gi, "");
+				if(integrityHashId != recoveryKeyId){
+					console.log("The comparaison cannot be perform because keys are differents.")
+					console.log(integrityHashId +" "+recoveryKeyId);
+				}else{
+					console.log("The key are comparable.")
+					if(integrityHash==CryptoJS.SHA1(recoveryKey)){
+						console.log("success");
+					}else {
+						console.log(integrityHash+"------"+CryptoJS.SHA1(recoveryKey));
+					}
+				}
 			}
