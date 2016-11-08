@@ -4,7 +4,6 @@ At the present time this project is experimental, do not use this application fo
 #Use case
 I was initially looking for a password-less solution that ensures the confidentiality, the integrity and the availability of my private keys. So I created this web application that generates recovery keys to be distributed to a "semi-trusted" third-party.
 
-Why password-less? Because I change my passwords on a regular basis and so changing the passwords of my keystores imply to update its backups. Life is too short for this.
 
 #What is a "semi-trusted" party
 A "semi-trusted" party is an entity (computer, human or whatever) that will keep ONE recovery key secured in "best effort". In case that one semi-trusted party:
