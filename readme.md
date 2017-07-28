@@ -2,9 +2,9 @@
 At the present time this project is experimental, do not use this application for any other purpose than testing. It has only been tested successfully with Chrome. It does not work with Safari.
 
 # Use case
-I was initially looking for a password-less solution that ensures the confidentiality, the integrity and the availability of my private keys. So I created this web application that generates recovery keys to be distributed to a "semi-trusted" third-party.
+I was initially looking for a password-less solution that ensures the confidentiality, the integrity and the availability of my private keys. So I created this web application that generates recovery keys to be distributed to a "semi-trusted" third-party. If I lose the private key of my wallet, I can request the recovery keys to the thirds parties.
 
-#What is a "semi-trusted" party
+# What is a "semi-trusted" party
 A "semi-trusted" party is an entity (computer, human or whatever) that will keep ONE recovery key secured in "best effort". In case that one semi-trusted party:
 * disappear: you can still rely on the other parties to recover your private key.
 * is corrupted (e.g. : cloud provider is hacked): no one else can recover your private key, unless he has enough recovery keys for that.
